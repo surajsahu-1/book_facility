@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./admin.css" />
+    <title>Admin Panal</title>
+</head>
+
+<body>
+    <nav>
+        <tr>
+            <td><a href="./index.html" target="_self">Booking</a></td>
+            <td><a href="./AdminPage.html" target="_self">admin</a></td>
+        </tr>
+    </nav>
+    <section class="body">
+        <article>
+            <h2>Admin</h2>
+            <table border="1px" cellspacing="0" cellpadding="">
+                <thead>
+                    <tr>
+                        <th>Sl</th>
+                        <th>Name</th>
+                        <th>Door no</th>
+                        <th>Facility</th>
+                        <th>Booking Date</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </article>
+    </section>
+
+    <script>
+        function fetchllAll() {
+            let bookings = JSON.parse(localStorage.getItem("bSlots"));
+            for (let i = 0; i < bookings.length; i++) {
+                let ticket = bookings[i];
+
+                let row = document.createElement("tr");
+
+                let d1 = document.createElement("td");
+                d1.innerText = i + 1;
+
+                let d2 = document.createElement("td");
+                d2.innerText = ticket.person_name;
+
+                let d3 = document.createElement("td");
+                d3.innerText = ticket.door_no;
+
+                let d4 = document.createElement("td");
+                d4.innerText = ticket.facility;
+
+                let d5 = document.createElement("td");
+                d5.innerText = ticket.booking_date;
+
+                let d6 = document.createElement("td");
+                d6.innerText = ticket.start;
+
+                let d7 = document.createElement("td");
+                d7.innerText = ticket.end;
+                let d8 = document.createElement("td");
+                d8.innerText = ticket.price;
+
+                row.append(d1, d2, d3, d4, d5, d6, d7, d8);
+
+                let tBody = document.getElementById("tableBody");
+                tBody.append(row);
+            }
+        }
+        fetchllAll();
+    </script>
+</body>
+
+</html>
