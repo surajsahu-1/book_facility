@@ -26,9 +26,6 @@ function book() {
     slot.facility === facility &&
     date === slot.booking_date && ((sTime >= slot.start && sTime < slot.end) || (eTime > slot.start && eTime <= slot.end))
   );
-
-  // if()
-
   if (preBoo) {
     displayOutput("Booking Failed, Already Booked");
     return;
@@ -56,10 +53,7 @@ function book() {
     if (bSTime.getHours() >= rate.sTime && bETime.getHours() <= rate.eTime) {
       const bookingHours = (bETime - bSTime) / (60 * 60 * 1000);
       totalCost += rate.rate * bookingHours;
-    }
-    
-    // console.log(ticket);
-    
+    }  
     displayOutput(`Booked, Rs. ${totalCost}`);
   }
   ticket = {
