@@ -39,6 +39,10 @@ function book() {
     displayOutput("Facility not found");
     return;
   }
+  if (door<=0) {
+    displayOutput("Enter correct Residents no ");
+    return;
+  }
   if (door === '' || date == "" || sTime == "" || eTime == "") {
     displayOutput("Enter All values");
     return;
